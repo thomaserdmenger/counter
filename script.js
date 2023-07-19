@@ -18,3 +18,10 @@ const delayResetReload = () => {
 
 reloadEl.addEventListener('mousedown', rotateReload);
 reloadEl.addEventListener('mouseup', delayResetReload);
+
+// Clear counter
+const handleClear = () => {
+  counterEl.textContent = 0;
+};
+
+reloadEl.addEventListener('click', handleClear);
