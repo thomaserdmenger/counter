@@ -1,4 +1,5 @@
 // Get DOM elements
+const headingEl = document.querySelector('.display__heading');
 const counterEl = document.querySelector('.display__number');
 const reloadEl = document.querySelector('.button--reload');
 const buttonChangeArr = document.querySelectorAll('.button--change');
@@ -22,8 +23,8 @@ reloadEl.addEventListener('mouseup', delayResetReload);
 // Clear counter
 const handleClear = () => {
   counterEl.textContent = 0;
-  //   counterValue = 0;
   counterNumber = 0;
+  headingEl.textContent = 'Counter';
 };
 
 reloadEl.addEventListener('click', handleClear);
@@ -42,6 +43,10 @@ const handleCounter = e => {
   } else if (buttonValue === '-' && counterNumber > 0) {
     counterNumber -= 1;
     counterEl.textContent = counterNumber;
+  }
+
+  if (counterNumber === 5) {
+    headingEl.innerHTML = 'Limit! Buy <span class="display__heading--bold">Pro</span> for > 5';
   }
 };
 

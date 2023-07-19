@@ -69,6 +69,10 @@ span {
   padding-top: 4rem;
 }
 
+.display__heading--bold {
+  font-weight: 800;
+}
+
 .display__number {
   font-size: 10rem;
   padding-bottom: 1rem;
