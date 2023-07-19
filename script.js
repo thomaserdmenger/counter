@@ -38,8 +38,10 @@ const handleCounter = e => {
   const buttonValue = button.textContent;
 
   if (buttonValue === '+' && counterNumber >= 0) {
-    counterNumber += 1;
-    counterEl.textContent = counterNumber;
+    if (counterNumber <= 4) {
+      counterNumber += 1;
+      counterEl.textContent = counterNumber;
+    }
   } else if (buttonValue === '-' && counterNumber > 0) {
     counterNumber -= 1;
     counterEl.textContent = counterNumber;
