@@ -22,6 +22,27 @@ reloadEl.addEventListener('mouseup', delayResetReload);
 // Clear counter
 const handleClear = () => {
   counterEl.textContent = 0;
+  //   counterValue = 0;
+  counterNumber = 0;
 };
 
 reloadEl.addEventListener('click', handleClear);
+
+// Incement counter
+let counterValue = counterEl.textContent;
+let counterNumber = Number(counterValue);
+
+const handleCounter = e => {
+  const button = e.target;
+  const buttonValue = button.textContent;
+
+  if (buttonValue === '+') {
+    counterNumber += 1;
+    counterEl.textContent = counterNumber;
+  } else if (buttonValue === '-') {
+    counterNumber -= 1;
+    counterEl.textContent = counterNumber;
+  }
+};
+
+buttonChangeArr.forEach(button => addEventListener('click', handleCounter));
