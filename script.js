@@ -36,10 +36,10 @@ const handleCounter = e => {
   const button = e.target;
   const buttonValue = button.textContent;
 
-  if (buttonValue === '+') {
+  if (buttonValue === '+' && counterNumber >= 0) {
     counterNumber += 1;
     counterEl.textContent = counterNumber;
-  } else if (buttonValue === '-') {
+  } else if (buttonValue === '-' && counterNumber > 0) {
     counterNumber -= 1;
     counterEl.textContent = counterNumber;
   }
