@@ -69,9 +69,14 @@ const handleSpaceBar = e => {
 window.addEventListener('keydown', handleSpaceBar);
 
 // Increase counter with cursor control keys up
-const handleCursorKeyUp = e => {
+const handleCursorKeys = e => {
   if (e.keyCode === 38 && counterNumber >= 0 && counterNumber <= 4) {
     counterNumber += 1;
+    counterEl.textContent = counterNumber;
+  }
+
+  if (e.keyCode === 40 && counterNumber > 0) {
+    counterNumber -= 1;
     counterEl.textContent = counterNumber;
   }
 
@@ -80,14 +85,4 @@ const handleCursorKeyUp = e => {
   }
 };
 
-window.addEventListener('keydown', handleCursorKeyUp);
-
-// Decrease counter with cursor control keys down
-const handleCursorKeyDown = e => {
-  if (e.keyCode === 40 && counterNumber > 0) {
-    counterNumber -= 1;
-    counterEl.textContent = counterNumber;
-  }
-};
-
-window.addEventListener('keydown', handleCursorKeyDown);
+window.addEventListener('keydown', handleCursorKeys);
