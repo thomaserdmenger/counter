@@ -82,4 +82,12 @@ const handleCursorKeyUp = e => {
 
 window.addEventListener('keydown', handleCursorKeyUp);
 
-// down: 40
+// Decrease counter with cursor control keys down
+const handleCursorKeyDown = e => {
+  if (e.keyCode === 40 && counterNumber > 0) {
+    counterNumber -= 1;
+    counterEl.textContent = counterNumber;
+  }
+};
+
+window.addEventListener('keydown', handleCursorKeyDown);
