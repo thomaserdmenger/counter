@@ -36,22 +36,22 @@ span {
 /* Counter */
 .counter {
   background: linear-gradient(to top right, #2ec1c8, #30176b);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  height: 35rem;
-  width: 24rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 0 50px hsla(0, 0%, 0%, 0.5);
   display: flex;
   flex-direction: column;
+  height: 35rem;
   justify-content: space-between;
+  overflow: hidden;
+  width: 30rem;
 }
 
 .button {
-  background: none;
-  border: none;
+  all: unset;
   cursor: pointer;
-  outline: none;
 }
 
 /* Display */
@@ -101,7 +101,7 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  flex: 1;
   height: 10rem;
   background-color: var(--color-primary);
   color: hsl(202, 52%, 41%);
@@ -110,4 +110,22 @@ span {
 
 .button--change:active {
   color: hsl(253, 56%, 28%);
+}
+
+/* Mobile */
+@media only screen and (max-width: 680px) {
+  .counter {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .display__heading {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  .display__number {
+    margin-bottom: 2rem;
+  }
 }
