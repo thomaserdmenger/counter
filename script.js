@@ -25,6 +25,8 @@ const handleClear = () => {
   counterEl.textContent = 0;
   counterNumber = 0;
   headingEl.textContent = 'Counter';
+
+  console.log(counterNumber);
 };
 
 reloadEl.addEventListener('click', handleClear);
@@ -53,3 +55,25 @@ const handleCounter = e => {
 };
 
 buttonChangeArr.forEach(button => addEventListener('click', handleCounter));
+
+// Increase with space key
+const handleSpaceBar = e => {
+  e.preventDefault();
+
+  if (e.keyCode === 32 && counterNumber >= 0 && counterNumber <= 4) {
+    counterNumber += 1;
+    counterEl.textContent = counterNumber;
+  }
+
+  if (counterNumber === 5) {
+    headingEl.innerHTML = 'Limit! Buy <span class="display__heading--bold">Pro</span> for > 5';
+  }
+
+  console.log(counterNumber);
+};
+
+window.addEventListener('keydown', handleSpaceBar);
+
+// space: 32
+// up: 38
+// down: 40
