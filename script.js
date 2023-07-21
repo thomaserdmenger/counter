@@ -25,13 +25,10 @@ const handleClear = () => {
   counterEl.textContent = 0;
   counterNumber = 0;
   headingEl.textContent = 'Counter';
+  buttonChangeArr.forEach(button => (button.disabled = false));
 };
 
 reloadEl.addEventListener('click', handleClear);
-
-// Increment and decrement counter
-let counterValue = counterEl.textContent;
-let counterNumber = Number(counterValue);
 
 // Helper functions
 const incrementCounter = () => {
@@ -46,7 +43,12 @@ const decrementCounter = () => {
 
 const proMessage = () => {
   headingEl.innerHTML = 'Limit! Buy <span class="display__heading--bold">Pro</span> for > 5';
+  buttonChangeArr.forEach(button => (button.disabled = true));
 };
+
+// Increment and decrement counter
+let counterValue = counterEl.textContent;
+let counterNumber = Number(counterValue);
 
 const handleCounter = e => {
   const button = e.target;
@@ -65,7 +67,7 @@ const handleCounter = e => {
 
 buttonChangeArr.forEach(button => addEventListener('click', handleCounter));
 
-// Increase counter with space key
+// Increment counter with space key
 const handleSpaceBar = e => {
   e.preventDefault();
 
@@ -78,9 +80,9 @@ const handleSpaceBar = e => {
   }
 };
 
-window.addEventListener('keydown', handleSpaceBar);
+document.addEventListener('keydown', handleSpaceBar);
 
-// Increase counter with cursor control keys up
+// Increment and decrement counter with cursor control keys up
 const handleCursorKeys = e => {
   if (e.keyCode === 38 && counterNumber >= 0 && counterNumber <= 4) {
     incrementCounter();
@@ -95,4 +97,4 @@ const handleCursorKeys = e => {
   }
 };
 
-window.addEventListener('keydown', handleCursorKeys);
+document.addEventListener('keydown', handleCursorKeys);
