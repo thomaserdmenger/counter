@@ -29,24 +29,37 @@ const handleClear = () => {
 
 reloadEl.addEventListener('click', handleClear);
 
-// Incement counter
+// Increment and decrement counter
 let counterValue = counterEl.textContent;
 let counterNumber = Number(counterValue);
+
+// Helper functions
+const incrementCounter = () => {
+  counterNumber += 1;
+  counterEl.textContent = counterNumber;
+};
+
+const decrementCounter = () => {
+  counterNumber -= 1;
+  counterEl.textContent = counterNumber;
+};
+
+const proMessage = () => {
+  headingEl.innerHTML = 'Limit! Buy <span class="display__heading--bold">Pro</span> for > 5';
+};
 
 const handleCounter = e => {
   const button = e.target;
   const buttonValue = button.textContent;
 
   if (buttonValue === '+' && counterNumber >= 0 && counterNumber <= 4) {
-    counterNumber += 1;
-    counterEl.textContent = counterNumber;
+    incrementCounter();
   } else if (buttonValue === '-' && counterNumber > 0) {
-    counterNumber -= 1;
-    counterEl.textContent = counterNumber;
+    decrementCounter();
   }
 
   if (counterNumber === 5) {
-    headingEl.innerHTML = 'Limit! Buy <span class="display__heading--bold">Pro</span> for > 5';
+    proMessage();
   }
 };
 
@@ -57,12 +70,11 @@ const handleSpaceBar = e => {
   e.preventDefault();
 
   if (e.keyCode === 32 && counterNumber >= 0 && counterNumber <= 4) {
-    counterNumber += 1;
-    counterEl.textContent = counterNumber;
+    incrementCounter();
   }
 
   if (counterNumber === 5) {
-    headingEl.innerHTML = 'Limit! Buy <span class="display__heading--bold">Pro</span> for > 5';
+    proMessage();
   }
 };
 
@@ -71,17 +83,15 @@ window.addEventListener('keydown', handleSpaceBar);
 // Increase counter with cursor control keys up
 const handleCursorKeys = e => {
   if (e.keyCode === 38 && counterNumber >= 0 && counterNumber <= 4) {
-    counterNumber += 1;
-    counterEl.textContent = counterNumber;
+    incrementCounter();
   }
 
   if (e.keyCode === 40 && counterNumber > 0) {
-    counterNumber -= 1;
-    counterEl.textContent = counterNumber;
+    decrementCounter();
   }
 
   if (counterNumber === 5) {
-    headingEl.innerHTML = 'Limit! Buy <span class="display__heading--bold">Pro</span> for > 5';
+    proMessage();
   }
 };
 
